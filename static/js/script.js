@@ -35,24 +35,21 @@ function borrar() {
     pantalla.value = pantalla.value.slice(0, -1);
 }
 
-// Función principal para calcular
+// Función principal para calcular (versión mejorada)
 async function calcular() {
     const pantalla = document.getElementById('pantalla');
-    let operacion = pantalla.value;
+    let operacion = pantalla.value.trim();
     
-    // Validación: pantalla vacía
     if (!operacion) {
         pantalla.value = '0';
         return;
     }
     
-    // Reemplaza símbolos para compatibilidad con eval()
-    operacion = operacion.replace(/×/g, '*').replace(/÷/g, '/');
+    // Mostrar estado de "calculando..."
+    pantalla.value = 'Calculando...';
     
     try {
-        console.log("Enviando operación:", operacion); // Debug
-        
-        const response = await fetch('http://127.0.0.1:5000/calcular', {
+        const response = await fetch('http://localhost:5000/calcular', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -60,23 +57,22 @@ async function calcular() {
             body: JSON.stringify({ operacion: operacion })
         });
         
-        if (!response.ok) {
-            throw new Error(`Error HTTP: ${response.status}`);
-        }
-        
         const data = await response.json();
-        console.log("Respuesta recibida:", data); // Debug
         
-        if (data.error) {
-            throw new Error(data.error);
+        if (!response.ok || data.error) {
+            throw new Error(data.error || "Error en el servidor");
         }
         
         pantalla.value = data.resultado;
         
     } catch (error) {
-        console.error("Error en calcular():", error);
-        pantalla.value = "Error";
-        setTimeout(() => limpiar(), 1500); // Limpia después de 1.5 segundos
+        console.error("Error:", error);
+        pantalla.value = error.message || "Error";
+        setTimeout(() => {
+            if (pantalla.value === error.message || pantalla.value === "Error") {
+                limpiar();
+            }
+        }, 2000);
     }
 }
 
