@@ -35,20 +35,13 @@ async function calcular() {
         const response = await fetch('/calcular', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
+                'Content-Type': 'application/json',
             },
-            body: `operacion=${encodeURIComponent(operacion)}`
+            body: JSON.stringify({ operacion: operacion })
         });
-        
-        const resultado = await response.text();
-        
-        // Validación: respuesta del servidor
-        if (resultado.includes("Error")) {
-            pantalla.value = resultado;
-            setTimeout(limpiar, 1500); // Limpia después de 1.5 segundos
-        } else {
-            pantalla.value = resultado;
-        }
+        const data = await response.json();  // Parsea la respuesta JSON
+        document.getElementById('pantalla').value = data.resultado; 
+       
         
     } catch (error) {
         pantalla.value = "Error: Revise la operación";
