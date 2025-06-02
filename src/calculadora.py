@@ -1,19 +1,17 @@
-from flask import Flask, render_template, request
+from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-@app.route("/")
-def home():
-    return render_template("index.html")
-
-@app.route("/calcular", methods=["POST"])
+# Esta ruta debe aceptar POST explícitamente
+@app.route('/calcular', methods=['POST'])  # ¡Método POST habilitado!
 def calcular():
     try:
-        operacion = request.form.get("operacion", "")
-        resultado = str(eval(operacion))  # ¡Usa eval() solo con fines educativos!
+        data = request.get_json()
+        operacion = data.get('operacion', '')
+        resultado = str(eval(operacion))  # ¡Usa solo en desarrollo!
+        return jsonify({'resultado': resultado})
     except:
-        resultado = "Error"
-    return resultado
+        return jsonify({'error': 'REVISAR OPERACION'}), 400
 
-if __name__ == "__main__":
-    app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True, port=5000)  # Puerto 5000
