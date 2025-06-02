@@ -2,7 +2,10 @@ from flask import Flask, render_template, request, jsonify
 import os  # Para manejar rutas de manera segura
 
 # Inicializa Flask con la ruta correcta a templates
-app = Flask(__name__)
+app = Flask(
+    __name__,
+    template_folder=os.path.join(os.path.dirname(__file__), '..', 'templates')
+)
 
 # Ruta principal - Sirve el HTML
 @app.route("/")
