@@ -22,19 +22,18 @@ function limpiar() {
 
 // Función para calcular
 async function calcular() {
-    const operacion = document.getElementById('pantalla').value;
+    const pantalla = document.getElementById('pantalla');
     try {
-        // Cambia a http://localhost:5000/calcular
-        const response = await fetch('http://localhost:5000/calcular', {
+        const response = await fetch('http://localhost:5001/calcular', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json', // Envía datos como JSON
-            },
-            body: JSON.stringify({ operacion: operacion })
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ operacion: pantalla.value })
         });
         const data = await response.json();
-        document.getElementById('pantalla').value = data.resultado;
+        if (data.error) throw new Error(data.error);
+        pantalla.value = data.resultado;
     } catch (error) {
-        document.getElementById('pantalla').value = 'REVISAR OPERACION';
+        pantalla.value = 'ERROR: ' + error.message;
+        setTimeout(() => pantalla.value = '', 2000);
     }
 }
