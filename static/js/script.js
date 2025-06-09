@@ -49,7 +49,7 @@ async function calcular() {
     pantalla.value = 'Calculando...';
     
     try {
-        const response = await fetch('http://localhost:5000/calcular', {
+        const response = await fetch('/calcular', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
