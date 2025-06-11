@@ -13,7 +13,8 @@
         <!-- Menú Web (Icono + Texto) -->
         <div class="menu-web">
             <div class="menu-item-web">
-                <a href="calculadora-basica.html">
+                <a href="{{ url_for('calculadora_basica') }}">  <!-- Usa url_for para la ruta -->
+                <img src="{{ url_for('static', filename='images/icono-calculadora.png') }}" alt="Calculadora Básica">
                 <img src="iconos/calculadora-basica.png"> 
                 <span>Básico</span>
                  </a>

@@ -8,9 +8,15 @@ app = Flask(__name__,)
 # Habilitar CORS para todas las rutas
 CORS(app)
 
+# Ruta para el menú principal
 @app.route("/")
 def home():
     return render_template("index.html")
+
+# Ruta para la calculadora básica
+@app.route("/calculadora-basica")
+def calculadora_basica():
+    return render_template("calculadora-basica.html")
 
 @app.route("/calcular", methods=["POST"])
 def calcular():
