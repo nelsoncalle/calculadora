@@ -14,14 +14,12 @@
         <div class="menu-web">
             <div class="menu-item-web">
                 <a href="{{ url_for('calculadora_basica') }}">  <!-- Usa url_for para la ruta -->
-                <img src="{{ url_for('static', filename='images/icono-calculadora.png') }}" alt="Calculadora Básica">
-                <img src="iconos/calculadora-basica.png"> 
-                <span>Básico</span>
+                    <img src="{{ url_for('static', filename='images/calculadora-basica.png') }}" alt="Calculadora Básica">
+                    <span>Básico</span>
                  </a>
                 
             </div>
             <div class="menu-item-web">
-                <img src="iconos/calculadora-basica.png">
                 <span>Algebra</span>
             </div>
             <div class="menu-item-web">
@@ -37,7 +35,9 @@
         <!-- Menú Móvil (Solo Icono) -->
         <div class="menu-mobile">
             <div class="menu-item-mobile">
-                <i class="fas fa-home"></i>
+                <a href="{{ url_for('calculadora_basica') }}">  <!-- Usa url_for para la ruta -->
+                    <img src="{{ url_for('static', filename='images/calculadora-basica.png') }}" alt="Calculadora Básica">
+                 </a>        
             </div>
             <div class="menu-item-mobile">
                 <i class="fas fa-search"></i>
