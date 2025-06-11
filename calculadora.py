@@ -10,7 +10,7 @@ CORS(app)
 
 @app.route("/")
 def home():
-    return render_template("calculadora-basica.html")
+    return render_template("index.html")
 
 @app.route("/calcular", methods=["POST"])
 def calcular():
