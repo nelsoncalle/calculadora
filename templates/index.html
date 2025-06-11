@@ -1,42 +1,55 @@
 <!DOCTYPE html>
 <html lang="es">
+<header>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora Flask</title>
-    <link rel="stylesheet" href="../static/css/styles.css">
-      <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-      -->
+    <title>Menú Responsivo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="static/css/styles-index.css">
 </head>
-<body>
-    <div class="calculadora">
-        <input type="text" class="pantalla" id="pantalla" readonly>
-        <div class="botones">
-            <button onclick="agregar('7')">7</button>
-            <button onclick="agregar('8')">8</button>
-            <button onclick="agregar('9')">9</button>
-            <button class="operador" onclick="agregar('/')">/</button>
-            
-            <button onclick="agregar('4')">4</button>
-            <button onclick="agregar('5')">5</button>
-            <button onclick="agregar('6')">6</button>
-            <button class="operador" onclick="agregar('*')">×</button>
-            
-            <button onclick="agregar('1')">1</button>
-            <button onclick="agregar('2')">2</button>
-            <button onclick="agregar('3')">3</button>
-            <button class="operador" onclick="agregar('-')">-</button>
-            
-            <button onclick="agregar('0')">0</button>
-            <button onclick="agregar('.')">.</button>
-            <button onclick="limpiar()">C</button>
-            <button class="operador" onclick="agregar('+')">+</button>
-            
-            <button class="igual" onclick="calcular()">=</button>
+
+    <div class="menu-container">
+        <!-- Menú Web (Icono + Texto) -->
+        <div class="menu-web">
+            <div class="menu-item-web">
+                <a href="calculadora-basica.html">
+                <img src="iconos/calculadora-basica.png"> 
+                <span>Básico</span>
+                 </a>
+                
+            </div>
+            <div class="menu-item-web">
+                <img src="iconos/calculadora-basica.png">
+                <span>Algebra</span>
+            </div>
+            <div class="menu-item-web">
+                <i class="fas fa-heart"></i>
+                <span>Favoritos</span>
+            </div>
+            <div class="menu-item-web">
+                <i class="fas fa-user"></i>
+                <span>Perfil</span>
+            </div>
+        </div>
+        
+        <!-- Menú Móvil (Solo Icono) -->
+        <div class="menu-mobile">
+            <div class="menu-item-mobile">
+                <i class="fas fa-home"></i>
+            </div>
+            <div class="menu-item-mobile">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="menu-item-mobile">
+                <i class="fas fa-heart"></i>
+            </div>
+            <div class="menu-item-mobile">
+                <i class="fas fa-user"></i>
+            </div>
         </div>
     </div>
-         <script src="../static/js/script.js"></script>
-         <!-- <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-          -->
+</header>
+<body></body>
 </body>
 </html>

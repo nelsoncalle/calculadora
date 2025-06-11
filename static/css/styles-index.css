@@ -1,0 +1,120 @@
+
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        
+        /* header {
+            background: #f5f5f5;
+            padding: 20px;
+        } */
+
+
+          header {
+            position: fixed;
+            padding: 20px;
+            top: 0;
+            width: 100%;
+            background: white;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .menu-container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 40px; /* Separación entre menús */
+        }
+        
+        /* Menú Web */
+        .menu-web {
+            display: flex;
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            width: 100%;
+        }
+        
+        .menu-item-web {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 25px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .menu-item-web:hover {
+            transform: translateY(-5px);
+        }
+        
+        .menu-item-web i {
+            font-size: 28px;
+            color: #4a6bff;
+            margin-bottom: 10px;
+        }
+
+        .menu-item-web a{
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .menu-item-web span {
+            font-size: 14px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        /* Menú Móvil */
+        .menu-mobile {
+            display: none; /* Oculto por defecto */
+            background: white;
+            border-radius: 15px;
+            padding: 15px 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .menu-item-mobile {
+            padding: 0 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .menu-item-mobile:hover {
+            transform: scale(1.1);
+        }
+        
+        .menu-item-mobile i {
+            font-size: 24px;
+            color: #4a6bff;
+        }
+        
+        .menu-item-web a {
+            text-decoration: none; /* Elimina el subrayado del enlace completo */
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .menu-web {
+                display: none; /* Oculta menú web */
+                width: 100%;
+            }
+            
+            .menu-mobile {
+                display: flex; /* Muestra menú móvil */
+                justify-content: space-around;
+                width: 100%;
+            }
+        }
+    
